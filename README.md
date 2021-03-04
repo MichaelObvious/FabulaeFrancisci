@@ -1,6 +1,6 @@
 # Fābulae Franciscī
 
-*Fābulae nārrātae ā quōdam magistrō nōmine Franciscus.*
+*Fābulae nārrātae ā quōdam magistrō nōmine Franciscus*
 
 ## Ut facere pdf
 
