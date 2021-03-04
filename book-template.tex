@@ -1,0 +1,43 @@
+\documentclass[a4paper, 12pt]{article}
+
+%%%%%%%%%%%%%%%% PACKAGES %%%%%%%%%%%%%%%%
+\usepackage[latin]{babel}
+\usepackage{fontspec}
+\usepackage{titlesec}
+
+%%%%%%%%%%%%%%%% MACROS %%%%%%%%%%%%%%%%
+\newcommand{\booktitle}{\textbf{Fābulae Franciscī}}
+\newcommand{\leftangle}{{\fontspec{DejaVu Serif Condensed}⟨}}
+\newcommand{\rightangle}{{\fontspec{DejaVu Serif Condensed}⟩}}
+
+%%%%%%%%%%%%%%%% PREFERENCES %%%%%%%%%%%%%%%%
+\title{
+	\booktitle\\
+	\large{\textit{Fābulae nārrātae ā quōdam magistrō nōmine Franciscus.}}
+}
+\author{} % Michele Palese
+\date{}
+
+\setromanfont[BoldFont={Gentium Basic Bold},ItalicFont={Gentium Italic}]{Gentium}
+\pagestyle{heading}
+
+\renewcommand{\thesection}{\Roman{section}}
+\titleformat{\section} % command 
+	[display] % shape
+	{\centering\Large\bfseries} % format
+	{\thesection} % label
+{0.5ex} % sep
+{} % before-code
+[] % after-code
+
+%%%%%%%%%%%%%%%% DOCUMENT %%%%%%%%%%%%%%%%
+\makeindex
+\begin{document}
+	\maketitle
+	\tableofcontents
+	
+	\newpage
+	
+%{fabulae}%
+	
+\end{document}
