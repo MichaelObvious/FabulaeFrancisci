@@ -4,9 +4,11 @@
 
 ## Ut facere pdf
 
-Necesse est:
-- habēre `python3` et `xelatex` in systemā et in variābilī `PATH`
-- habēre *font'em* `Ubuntu` in systemā
+necesse est:
+- habēre [python3](https://www.python.org/) et [xelatex](https://www.latex-project.org/) in systemā et in variābilī `PATH`
+- habēre *font*'em [Ubuntu](https://design.ubuntu.com/font/) in systemā
+
+posthāc in *consol*'em scrībendum est
 
 ```console
 $ python3 build.py
