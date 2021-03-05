@@ -7,8 +7,8 @@
 
 %%%%%%%%%%%%%%%% MACROS %%%%%%%%%%%%%%%%
 \newcommand{\booktitle}{\textbf{Fābulae Franciscī}}
-\newcommand{\leftangle}{{\fontspec{DejaVu Serif Condensed}⟨}}
-\newcommand{\rightangle}{{\fontspec{DejaVu Serif Condensed}⟩}}
+\newcommand{\leftangle}{{\fontspec{DejaVu Sans}⟨}}
+\newcommand{\rightangle}{{\fontspec{DejaVu Sans}⟩}}
 
 %%%%%%%%%%%%%%%% PREFERENCES %%%%%%%%%%%%%%%%
 \title{
@@ -18,7 +18,9 @@
 \author{} % Michele Palese
 \date{}
 
-\setromanfont[BoldFont={Gentium Basic Bold},ItalicFont={Gentium Italic}]{Gentium}
+%\setromanfont[BoldFont={Gentium Basic Bold},ItalicFont={Gentium Italic}]{Gentium}
+\setmainfont{Ubuntu}
+
 \pagestyle{heading}
 
 \renewcommand{\thesection}{\Roman{section}}
@@ -34,8 +36,9 @@
 \makeindex
 \begin{document}
 	\maketitle
-	\tableofcontents
+	\newpage
 	
+	\tableofcontents
 	\newpage
 	
 %{fabulae}%

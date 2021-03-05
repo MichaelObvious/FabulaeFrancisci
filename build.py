@@ -35,7 +35,7 @@ def format_md_to_tex(mdtext):
         if line.startswith('#'):
             textext += f"\\section{{{line.replace('# ', '')}}}\n\n"
         elif line.startswith('>'):
-            textext += f"{line.replace('> ', '')}\n\n" # maybe textit
+            textext += f"\\textit{{{line.replace('> ', '')}}}\n\n"
         else:
             textext += f'{line}\n'
 
