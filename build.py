@@ -35,7 +35,7 @@ def format_md_to_tex(mdtext):
         if line.startswith('#'):
             textext += f"\\section{{{line.replace('# ', '')}}}\n\n"
         elif line.startswith('>'):
-            textext += f"\\begin{{otherlanguage}}{{polytonicgreek}}{{{line.replace('> ', '')}}}\\end{{otherlanguage}}\n\n"
+            textext += "\\begin{otherlanguage}{polytonicgreek}" + f"{line.replace('> ', '')}" + "\\end{otherlanguage}\n\n"
         else:
             textext += f'{line}\n'
 
