@@ -33,9 +33,14 @@ def format_md_to_tex(mdtext):
     textext = ''
     for line in mdtext.splitlines(False):
         if line.startswith('#'):
-            textext += f"\\section{{{line.replace('# ', '')}}}\n\n"
+            title = line.replace('# ', '')
+            textext += f"\\section*{{{title}}}"
+            textext += f"\\addcontentsline{{toc}}{{section}}{{{title}}}"
+            textext += "\n\n"
         elif line.startswith('>'):
-            textext += "\\begin{otherlanguage}{polytonicgreek}" + f"{line.replace('> ', '')}" + "\\end{otherlanguage}\n\n"
+            textext += "\\begin{otherlanguage}{polytonicgreek}\n"
+            textext += line.replace('> ', '') + '\n'
+            textext += "\\end{otherlanguage}\n\n"
         else:
             textext += f'{line}\n'
 
