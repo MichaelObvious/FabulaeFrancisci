@@ -19,14 +19,27 @@ def slurp_file(filepath):
 
 TEMPLATE_FILE = 'book-template.tex'
 FABULAE_DIR = 'fabulae'
-FABULAE_MARK = '%{fabulae}%'
+FABULAE_LAT_MARK = '%{fabulae_latinae}%'
+FABULAE_GR_MARK = '%{fabulae_graecae}%'
 OUT_DIR = 'out'
 OUT_FILE = f'{OUT_DIR}/FābulaeFranciscī.tex'
 BUILD_COMMAND = 'xelatex -interaction=nonstopmode %s'
 
 #---------- PROCEDURES ----------#
 
-def get_title(title):
+def is_greek(s: str):
+    n = [0, 0]
+    for c in s:
+        if c in "ΑαΒβΓγΔδΕεΖζΗηΘθΙιΚκΛλΜμΝνΞξΟοΠπΡρΣσςΤτΥυΦφΧχΨψΩω":
+            n[0] += 1
+        else:
+            n[1] += 1
+
+    assert n[0] + n[1] == len(s)
+
+    return n[0] / n[1] >= 1
+
+def get_title(title: str):
     return title.upper().replace('Ā', 'A').replace('Ē', 'E').replace('Ī', 'I').replace('Ō', 'O').replace('Ū', 'U')
 
 def format_md_to_tex(mdtext):
@@ -34,8 +47,9 @@ def format_md_to_tex(mdtext):
     for line in mdtext.splitlines(False):
         if line.startswith('#'):
             title = line.replace('# ', '')
-            textext += f"\\section*{{{title}}}"
-            textext += f"\\addcontentsline{{toc}}{{section}}{{{title}}}"
+            #if not is_greek(title):
+            #    title = f"\\textbf{{{title}}}"
+            textext += f"\\section{{{title}}}"
             textext += "\n\n"
         elif line.startswith('>'):
             textext += "\\begin{otherlanguage}{polytonicgreek}\n"
@@ -44,7 +58,7 @@ def format_md_to_tex(mdtext):
         else:
             textext += f'{line}\n'
 
-     # textext = textext.replace('⟨', '\\leftangle ').replace('⟩', '\\rightangle ')
+    #textext = textext.replace('⟨', '\\leftangle ').replace('⟩', '\\rightangle ')
     return textext
 
 def slurp_fabulae():
@@ -64,6 +78,12 @@ def main(args):
 
     fabulae = slurp_fabulae()
     fabulae = sorted(fabulae.items(), key=lambda kv: get_title(kv[0]))
+    
+    latine_fabulae = filter(lambda kv: not is_greek(kv[0]), fabulae)
+    graece_fabulae = filter(lambda kv: is_greek(kv[0]), fabulae)
+
+    latine_fabulae = '\n\n\n'.join(map(lambda t: t[1], latine_fabulae))
+    graece_fabulae = '\n\n\n'.join(map(lambda t: t[1], graece_fabulae))
 
     try:
         os.mkdir(OUT_DIR)
@@ -71,7 +91,7 @@ def main(args):
         pass
     
     with open(OUT_FILE, 'w') as f:
-        content = template.replace(FABULAE_MARK, '\n\n\n'.join(map(lambda t: t[1], fabulae)))
+        content = template.replace(FABULAE_LAT_MARK, latine_fabulae).replace(FABULAE_GR_MARK, graece_fabulae)
         print(f, content)
 
     exit(os.system(BUILD_COMMAND % OUT_FILE))

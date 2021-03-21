@@ -1,4 +1,4 @@
-\documentclass[a4paper, 12pt]{article}
+\documentclass[a4paper, 12pt, oneside]{book}
 
 %%%%%%%%%%%%%%%% PACKAGES %%%%%%%%%%%%%%%%
 \usepackage[latin]{babel}
@@ -22,18 +22,27 @@
 \babelprovide[import]{polytonicgreek}
 \babelprovide[import]{greek}
 
-\usepackage{ebgaramond}
-%\setromanfont[BoldFont={Gentium Basic Bold},ItalicFont={Gentium Italic}]{GentiumAlt}
-%\setmainfont{BosporosU}
-\babelfont[polytonicgreek]{rm}{BosporosU}
+%\usepackage{ebgaramond}
+\setromanfont[BoldFont={Gentium Basic Bold},ItalicFont={Gentium Italic}]{GentiumAlt}
+%\babelfont[polytonicgreek]{rm}{BosporosU}
 %\setmainfont{Ubuntu}
 
-\pagestyle{heading}
+\pagestyle{empty}
 
-\renewcommand{\thesection}{\Roman{section}}
+\setcounter{secnumdepth}{0}
+
+\renewcommand{\thechapter}{}%\Roman{chapter}}
+\titleformat{\chapter} % command 
+	[display] % shape
+	{\centering\Huge\bfseries} % format
+	{\thechapter} % label
+{0.5ex} % sep
+{} % before-code
+[] % after-code
+
 \titleformat{\section} % command 
 	[display] % shape
-	{\centering\Large\bfseries} % format
+	{\centering\Large} % format
 	{\thesection} % label
 {0.5ex} % sep
 {} % before-code
@@ -47,7 +56,14 @@
 	
 	\tableofcontents
 	\newpage
-	
-%{fabulae}%
+
+        \chapter{Fābulae latinae}
+        %{fabulae_latinae}%
+
+        \begin{otherlanguage}{polytonicgreek}
+          \chapter{Fābulae graecae}
+          %{fabulae_graecae}%
+        \end{otherlanguage}
+        
 	
 \end{document}
