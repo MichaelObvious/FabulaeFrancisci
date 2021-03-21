@@ -58,7 +58,7 @@ def format_md_to_tex(mdtext):
         else:
             textext += f'{line}\n'
 
-    #textext = textext.replace('⟨', '\\leftangle ').replace('⟩', '\\rightangle ')
+    textext = textext.replace('⟨', '\\leftangle ').replace('⟩', '\\rightangle ')
     return textext
 
 def slurp_fabulae():
