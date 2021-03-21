@@ -6,7 +6,7 @@
 
 necesse est:
 - habēre [python3](https://www.python.org/) et [xelatex](https://www.latex-project.org/) in systemā et in variābilī `PATH`
-- habēre *font*'em BosporosU in systemā
+- habēre *font*'em Gentium in systemā
 
 posthāc in *consol*'em scrībendum est
 
