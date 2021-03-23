@@ -1,7 +1,5 @@
 # Discipulī ⟨dissimiliter studentēs⟩
 
-- metà studio le preposizioni dagli esempi
-- metà studiò la regola
-- i primi fecero un risultato migliore
+Discipulīs necesse erat praepositiōnēs linguae graecae ēdiscere. Ūnī ēdidicērunt exempla, aliī ēdidicērunt rēgulās. Primī melius exāmen fēcērunt.
 
-> Ὁ λόγος δηλοῖ ὅτι ///
+> Ὁ μῦθος δηλοῖ ὅτι δεῖ οὐ μόνον θεωρίᾱν μανθάνεσθαι ἀλλὰ καὶ γιγνόμενα αἰσθηθῆναι.
